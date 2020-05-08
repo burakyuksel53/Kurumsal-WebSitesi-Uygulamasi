@@ -1,0 +1,66 @@
+﻿@model KurumsalWeb1.Models.Model.Comment
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorum Sil</h2>
+
+<h3>Yorumu silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Yorum</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Blog.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Blog.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameSurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameSurname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EPosta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EPosta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserComment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserComment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Confirm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Confirm)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        @Html.ActionLink("Geri Dön", "Index") |
+        <input type="submit" value="Sil" class="btn btn-default" />
+
+    </div>
+    }
+</div>

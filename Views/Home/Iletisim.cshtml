@@ -1,0 +1,50 @@
+﻿@model KurumsalWeb1.Models.Model.Iletisim
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<section id="content">
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.4344018436714!2d28.98905431541694!3d41.103202979291304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab68279d16fe3%3A0x5f125583ee2cf022!2sT%C3%BCrk%20Telekom%20Arena!5e0!3m2!1str!2str!4v1588690417302!5m2!1str!2str" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Formu doldurarak<strong> bize ulaşabilirsiniz.</strong></h4>
+                <form id="contactform" action="/Home/Iletisim" method="post" class="validateform" name="send-contact">
+                    <div class="alert alert-info" >
+                        @ViewBag.Uyari
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 field">
+                            <input type="text" name="name" placeholder="* İsminiz" data-rule="maxlen:4" data-msg="Lütfen en az 4 karakter giriniz." />
+                            <div class="validation">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 field">
+                            <input type="text" name="email" placeholder="* E-posta Adresiniz" data-rule="email" required />
+                            <div class="validation">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 field">
+                            <input type="text" name="konu" placeholder="Konu" data-rule="minlen:4" required />
+                            <div class="validation">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 margintop10 field">
+                            <textarea rows="12" name="mesaj" class="input-block-level" placeholder="* Mesajınız.." data-rule="required" data-msg="Birşeyler yazınız."></textarea>
+                            <div class="validation">
+                            </div>
+                            <p>
+                                <button class="btn btn-theme margintop10 pull-left" type="submit">Gönder</button>
+                                <span class="pull-right margintop20">* Lütfen gerekli tüm form alanlarını doldurun!</span>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

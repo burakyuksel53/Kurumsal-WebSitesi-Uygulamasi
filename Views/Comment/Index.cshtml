@@ -1,0 +1,74 @@
+﻿@model IEnumerable<KurumsalWeb1.Models.Model.Comment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorumlar</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myTable').DataTable(
+            {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+                }
+            }
+        );
+    });
+</script>
+
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Blog.Baslik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EPosta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserComment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Confirm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Blog.Baslik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameSurname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EPosta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserComment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Confirm)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.CommentId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.CommentId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.CommentId })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+    </table>
